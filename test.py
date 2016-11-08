@@ -26,7 +26,14 @@ class TestMinimumBoundingBox(unittest.TestCase):
     self.assertEqual(bb.unit_vector_angle, 0)
     self.assertEqual(bb.corner_points, {(1.6653345369377348e-16,0),(1.6653345369377348e-16,2),(-1,2),(-1,0)})
 
-    bb = 
+    bb = minimum_bounding_box(((0,0),(2,1.414213562),(-2,1.414213562)))
+    self.assertAlmostEqual(bb.area, 2)
+    self.assertAlmostEqual(bb.length_parallel, 2.4494897)
+    self.assertEqual(bb.length_orthogonal, 2.4494897)
+    self.assertEqual(bb.rectangle_center, (0, 1.414213562))
+    #self.assertEqual(bb.unit_vector, (1,0)) ?? Don't understand what this is ?
+    self.assertEqual(bb.unit_vector_angle, 45)
+    self.assertEqual(bb.corner_points, {(1.6653345369377348e-16,0),(1.6653345369377348e-16,4.8989795),(2,1.414213562),(-2,1.414213562}) 
 
 
 if __name__ == '__main__': unittest.main()
